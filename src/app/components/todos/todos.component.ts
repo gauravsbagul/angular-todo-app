@@ -11,16 +11,22 @@ import { TodoService } from '../../services/todo.service';
 export class TodosComponent implements OnInit {
 
 
-  todos: Todo[]= [];
+  todos: Todo[] = [];
 
-  constructor(private todoService:TodoService) {
-     
-   }
+  constructor(private todoService: TodoService) {
+
+  }
 
   ngOnInit(): void {
     this.todoService.getTodos().subscribe(todos => {
-        this.todos = todos
-      })
+      this.todos = todos
+    })
   }
+
+  deleteTodo(t: Todo) {
+    this.todos = this.todos.filter((todo: Todo) => todo.id != t.id)
+    this.todoService.deleteTodo(t).subscribe()
+  }
+
 
 }

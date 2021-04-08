@@ -31,7 +31,6 @@ export class AppComponent {
    }
 
   _onSelect(index: number) {
-    console.log('Log: ~> file: app.component.ts ~> line 31 ~> AppComponent ~> index', index)
     this.selectedValue = mainArray[index]
     this.isNashik = nashik.includes(mainArray[index]);
     this.isPune = pune.includes(mainArray[index]);
